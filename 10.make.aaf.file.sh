@@ -127,6 +127,6 @@ for x in {1..22} X; do
  done
  
 #now build the actual regenie inputs
-cat above.1perc.chr* deleterious.below.0.1perc* deleterious.0.1.to.1perc* > "${pathReg}"regenieInputs/regenie.aaf.file.txt
-rm above.1perc.chr* deleterious.below.0.1perc* deleterious.0.1.to.1perc*
+cat "${pathTmp}"above.1perc.chr* "${pathTmp}"deleterious.below.0.1perc* "${pathTmp}"deleterious.0.1.to.1perc* > "${pathReg}"regenieInputs/regenie.aaf.file.txt
+rm "${pathTmp}"above.1perc.chr* "${pathTmp}"deleterious.below.0.1perc* "${pathTmp}"deleterious.0.1.to.1perc*
  
