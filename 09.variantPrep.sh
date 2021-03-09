@@ -1,3 +1,6 @@
+## Since there is a lot of steps, to ensure that there is no hidden errors
+set -e 
+
 #this file may be difficult to understand, but essentially it just builds the --set-list and --anno-file (regenie step 2 inputs) from the VEP annotation output
 #if PBS arrays are available on your cluster, I highly suggest you to do it this way (instead of the for loop below).
 
@@ -161,9 +164,9 @@ for x in {1..22} X; do
 done
 
 #now build the necessary regenie step 2 inputs
-cat pLoF.chr* moderate.non.missense.chr* missense.5in5.chr* missense.1in5.chr* missense.0in5.chr* > "${pathReg}"regenie.anno.file.txt
-rm pLoF.chr* moderate.non.missense.chr* missense.5in5.chr* missense.1in5.chr* missense.0in5.chr*
+cat "${pathTmp}"pLoF.chr* "${pathTmp}"moderate.non.missense.chr* "${pathTmp}"missense.5in5.chr* "${pathTmp}"missense.1in5.chr* "${pathTmp}"missense.0in5.chr* > "${pathReg}"regenie.anno.file.txt
+rm "${pathTmp}"pLoF.chr* "${pathTmp}"moderate.non.missense.chr* "${pathTmp}"missense.5in5.chr* "${pathTmp}"missense.1in5.chr* "${pathTmp}"missense.0in5.chr*
 
-cat regenie.set.list.chr* > "${pathReg}"regenie.set.list.txt
-rm regenie.set.list.chr*
+cat "${pathTmp}"regenie.set.list.chr* > "${pathReg}"regenie.set.list.txt
+rm "${pathTmp}"regenie.set.list.chr*
 
